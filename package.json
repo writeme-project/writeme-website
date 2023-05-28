@@ -1,8 +1,8 @@
 {
-  "name": "@onwidget/astrowind",
-  "description": "A template to make your website using Astro + Tailwind CSS.",
-  "version": "0.9.8",
-  "private": true,
+  "name": "writeme-website",
+  "description": "The Writeme project website",
+  "version": "0.0.1",
+  "private": false,
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
