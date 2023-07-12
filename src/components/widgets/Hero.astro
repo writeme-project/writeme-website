@@ -12,7 +12,6 @@ export interface Props {
   title?: string;
   subtitle?: string;
   callToAction?: string | CallToAction;
-  callToAction2?: string | CallToAction;
   image?: string | any; // TODO: find HTMLElementProps
 }
 
@@ -21,7 +20,6 @@ const {
   subtitle = await Astro.slots.render('subtitle'),
   content = await Astro.slots.render('content'),
   callToAction = await Astro.slots.render('callToAction'),
-  callToAction2 = await Astro.slots.render('callToAction2'),
   image = await Astro.slots.render('image'),
 } = Astro.props;
 ---
@@ -42,38 +40,61 @@ const {
         }
         <div class="max-w-3xl mx-auto">
           {subtitle && <p class="text-xl text-muted mb-6 dark:text-slate-300" set:html={subtitle} />}
-          <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4">
+          <div class="flex w-auto justify-center">
+            <div class="border-4 border-slate-900 dark:border-slate-300">
+              <div class="flex items-center bg-astro-gray-600">
+                <svg
+                  data-hk="0-0"
+                  width="22"
+                  height="13"
+                  viewBox="0 0 22 13"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="relative ml-4 mr-2 block w-3 -rotate-90"
+                  ><path d="M1 1L11 11L21 1" stroke="currentColor" stroke-width="2"></path></svg
+                >
+
+                <code data-code="" class="code flex-1 text-left leading-none"> cargo install writeme</code>
+
+                <div class="relative">
+                  <button
+                    data-copy-button=""
+                    class="block p-4 transition hover:scale-110 active:scale-100 active:transition-none"
+                    title="Copy to clipboard"
+                    data-tooltip="Copy to clipboard"
+                  >
+                    <svg
+                      class="w-5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="max-w-xs sm:max-w-md m-auto mt-6 flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4">
             {
               callToAction && (
                 <div class="flex w-full sm:w-auto">
                   {typeof callToAction === 'string' ? (
                     <Fragment set:html={callToAction} />
                   ) : (
-                    <a class="btn btn-primary sm:mb-0 w-full" href={callToAction?.href} target="_blank" rel="noopener">
+                    <a class="btn btn-primary sm:mb-0 w-full" href={callToAction?.href} rel="noopener">
                       {callToAction?.icon && (
                         <>
-                          <Icon name={callToAction.icon} class="w-5 h-5 mr-1 -ml-1.5" />&nbsp;
+                          <Icon name={callToAction.icon} class="w-5 h-5 mr-1 -ml-1.5" />
+                          &nbsp;
                         </>
                       )}
                       {callToAction?.text}
-                    </a>
-                  )}
-                </div>
-              )
-            }
-            {
-              callToAction2 && (
-                <div class="flex w-full sm:w-auto">
-                  {typeof callToAction2 === 'string' ? (
-                    <Fragment set:html={callToAction2} />
-                  ) : (
-                    <a class="btn w-full" href={callToAction2?.href}>
-                      {callToAction2?.icon && (
-                        <>
-                          <Icon name={callToAction2.icon} class="w-5 h-5 mr-1 -ml-1.5" />&nbsp;
-                        </>
-                      )}
-                      {callToAction2.text}
                     </a>
                   )}
                 </div>
@@ -108,3 +129,38 @@ const {
     </div>
   </div>
 </section>
+
+<script>
+  function copyToClipboard() {
+    const textToCopy = 'cargo install writeme';
+    navigator.clipboard
+      .writeText(textToCopy)
+      .then(() => {
+        // Success message (optional)
+        console.log('Text copied to clipboard');
+      })
+      .catch((error) => {
+        // Error handling (optional)
+        console.error('Error copying text to clipboard:', error);
+      });
+  }
+
+  // add copyToClipboard as event listener to copy button
+  document.addEventListener('DOMContentLoaded', () => {
+    const copyButton = document.querySelector('[data-copy-button]');
+    copyButton!.addEventListener('click', copyToClipboard);
+  });
+
+  // make a tooltip appear after onclick with copied message
+  document.addEventListener('DOMContentLoaded', () => {
+    const copyButton = document.querySelector('[data-copy-button]');
+    copyButton!.addEventListener('click', () => {
+      const tooltip = document.querySelector('[data-tooltip]');
+      tooltip!.classList.add('tooltip');
+      tooltip!.innerHTML = 'Copied!';
+      setTimeout(() => {
+        tooltip!.classList.remove('tooltip');
+      }, 2000);
+    });
+  });
+</script>

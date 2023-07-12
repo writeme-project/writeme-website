@@ -17,19 +17,15 @@ const meta = {
 <Layout {meta}>
   <!-- Hero Widget ******************* -->
 
-  <Hero
-    callToAction={{ text: 'Learn more', href: '#features' }}
-    callToAction2={{ text: 'How it works', href: '#how-it-works' }}
-  >
+  <Hero callToAction={{ text: 'Learn more', href: '#features' }}>
     <Fragment slot="title">Get a complete README file in seconds.</Fragment>
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        <span class="font-semibold">Writeme</span> is a free CLI application that removes the burden of writing a README
-        file from scratch.</span
+        <span class="font-semibold">Writeme</span> is a free CLI application designed to alleviate the daunting task of crafting
+        a README file from the ground up.</span
       >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">Writeme: fast readme file generation.</span> Suitable for
-      any project.
+      Generates professionally formatted<br /> and captivating README file tailored specifically to your project.
     </Fragment>
   </Hero>
 
@@ -104,7 +100,7 @@ const meta = {
         {
           question: 'What do I need to start?',
           answer:
-            "If you're on MacOS, you can install it using brew: <code>brew install writeme</code>. Otherwise go to the github's releases page and download the latest version for your platform.",
+            "You can choose to install Writeme using cargo <code>cargo install writeme</code> or if you're on MacOS, you can install it using brew: <code>brew tap writeme-project/writeme && brew install writeme</code>. Otherwise go to the github's releases page and download the latest version for your platform.",
         },
         {
           question: 'Why?',
@@ -121,7 +117,7 @@ const meta = {
         {
           question: "What's the license?",
           answer:
-            "The project is open source, we'd love to have you contributing to it. It is licensed under the MIT license.",
+            "The project is open source, we'd love to have you contributing to it. It is licensed under the GPL-3.0 license.",
         },
       ],
     ]}
