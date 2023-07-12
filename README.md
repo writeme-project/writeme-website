@@ -22,60 +22,32 @@
         <a href="/CONTRIBUTING.md">
             👥 Contributing
         </a>
-        <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-        <a href="">
-            🤝 LINK TWO
-        </a>
-        <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-        <a href="">
-            🔎 LINK TRHEE
-        </a>
-        <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-        <a href="">
-            📝 LINK FOUR
-        </a>
     </h4>
 </div>
 </div>
 
-## What is writeme-website?
-writeme-website is a mystical realm where imagination reigns supreme.
 # Table of Contents
 - [Table of Contents](#table-of-contents)
-- [🏁 Getting Started ](#getting-started)
-  - [⚙️ Configuration ](#configuration)
-  - [⬇️ Installation ](#️installation)
-  - [🎈 Usage ](#usage)
-- [📄 License](#license)
-- [✍️ Authors ](#️authors)
-- [🎉 Acknowledgements ](#acknowledgements)
-# 🏁 Getting Started <a name = "getting-started"></a>
+- [🎈 Usage ](#-usage-)
+- [📄 License ](#-license-)
+- [✍️ Authors ](#️-authors-)
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-## ⚙️ Configuration <a name="configuration"></a>
+# 🎈 Usage <a name="usage"></a>
 ```bash
-software and dependencies to install before running the project
-```
-futher instructions...
-
-
-## ⬇️ Installation <a name="installation"></a>
-```bash
-git clone https://github.com/writeme-project/writeme-website.git
-```
-futher instructions...
-
-## 🎈 Usage <a name="usage"></a>
-```bash
-command to run the project
+ `npm install`          Installs dependencies                              
+ `npm run dev`          Starts local dev server at `localhost:3000`        
+ `npm run build`        Build your production site to `./dist/`            
+ `npm run preview`      Preview your build locally, before deploying       
+ `npm run format`       Format codes with Prettier                         
+ `npm run lint:eslint`  Run Eslint                                         
+ `npm run astro ...`    Run CLI commands like `astro add`, `astro preview` 
 ```
 futher instructions...
 
 
 
 # 📄 License <a name="license"></a>
-<a href="https://github.com/writeme-project/writeme-website.git/blob/master/LICENSE" target="_blank">
+<a href="https://github.com/writeme-project/writeme-website/blob/master/LICENSE" target="_blank">
     MIT
 </a>
 
@@ -86,10 +58,6 @@ futher instructions...
   </a>
 </div>
 
-# 🎉 Acknowledgements <a name = "acknowledgement"></a>
-- Hat tip to anyone whose code was used
-- Inspiration
-- References
 
 <p align="center">
 <br>
